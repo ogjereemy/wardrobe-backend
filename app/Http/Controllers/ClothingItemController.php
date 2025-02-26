@@ -54,6 +54,7 @@ class ClothingItemController extends Controller
      */
     public function destroy(string $id)
     {
-        
+        ClothingItem::destroy($id);
+        return response()->noContent();
     }
 }
