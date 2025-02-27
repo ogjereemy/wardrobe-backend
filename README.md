@@ -22,7 +22,7 @@ This is the backend of the Wardrobe Management System, built with Laravel 11. It
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/ogjereemy/wardrobe-frontend.git
+    git clone git@github.com:ogjereemy/wardrobe-backend.git
     cd wardrobe-management-backend
     ```
 
