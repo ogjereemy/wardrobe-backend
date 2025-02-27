@@ -120,7 +120,28 @@ return [
 
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
-        'store' => env('APP_MAINTENANCE_STORE', 'database'),
+        // Ensure the 'store' key is correctly set if using the 'cache' driver
+        'store' => env('APP_MAINTENANCE_STORE', null),
+    ],
+
+    'providers' => [
+        Illuminate\Cache\CacheServiceProvider::class,
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
+        Illuminate\Hashing\HashServiceProvider::class,
+        Illuminate\Translation\TranslationServiceProvider::class,
+        Illuminate\Validation\ValidationServiceProvider::class,
+        Illuminate\Foundation\Providers\FoundationServiceProvider::class,
+        Illuminate\Database\DatabaseServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        Laravel\Sanctum\SanctumServiceProvider::class,
+    ],
+
+    'aliases' => [
+        'DB' => Illuminate\Support\Facades\DB::class,
+        'Auth' => Illuminate\Support\Facades\Auth::class,
     ],
 
 ];

@@ -79,5 +79,14 @@ return [
         'encrypt_cookies' => Illuminate\Cookie\Middleware\EncryptCookies::class,
         'validate_csrf_token' => Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class,
     ],
+    /*
+    |--------------------------------------------------------------------------
+    | Personal Access Tokens
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'personal_access_token_model' => App\Models\PersonalAccessToken::class,
+
 
 ];
