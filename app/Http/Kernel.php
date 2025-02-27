@@ -13,7 +13,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        // Add other global middleware here as needed
+
+
     ];
 
     /**
@@ -23,7 +24,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            // Add any necessary web middleware here
+            //
         ],
 
         'api' => [
@@ -42,6 +43,6 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        // You can define other middlewares as needed
+
     ];
 }

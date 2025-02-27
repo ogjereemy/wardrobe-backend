@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
-use Laravel\Sanctum\PersonalAccessToken; // Add this line
+use Laravel\Sanctum\PersonalAccessToken;
 
 class LoginController extends Controller
 {
@@ -35,7 +35,7 @@ class LoginController extends Controller
         // Attempt to authenticate the user using the given credentials
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
-            
+
             // Generate API token for the authenticated user
             $token = $user->createToken('API Token')->plainTextToken;
 

@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'api', // You may want to set this as 'api' if you are working with an API.
+        'guard' => 'api',
         'passwords' => 'users',
     ],
 
@@ -42,7 +42,7 @@ return [
         ],
 
         'api' => [
-            'driver' => 'sanctum', // Ensure 'sanctum' is set as the driver here.
+            'driver' => 'sanctum',
             'provider' => 'users',
             'hash' => false,
         ],
@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class, // Ensure this is the correct model you are using.
+            'model' => App\Models\User::class,
         ],
 
         // 'users' => [

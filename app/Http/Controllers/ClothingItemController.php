@@ -32,7 +32,7 @@ class ClothingItemController extends Controller
             'description' => 'required|string',
             'size' => 'required|string',
             'color' => 'required|string',
-            'category_id' => 'required|exists:categories,id', // Ensure category exists
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         // Create a new clothing item
@@ -72,7 +72,7 @@ class ClothingItemController extends Controller
             'description' => 'required|string|max:500',
             'size' => 'required|string',
             'color' => 'required|string',
-            'category_id' => 'required|exists:categories,id', // Ensure category exists
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         // Update clothing item with validated data
