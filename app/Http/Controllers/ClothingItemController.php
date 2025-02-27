@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ClothingItem;
 use Illuminate\Http\Request;
 
 class ClothingItemController extends Controller
@@ -11,7 +12,13 @@ class ClothingItemController extends Controller
      */
     public function index()
     {
-        return ClothingItem::with('category')->get();
+        // Fetch all clothing items with their associated category
+        $clothingItems = ClothingItem::with('category')->get();
+
+        return response()->json([
+            'message' => 'Clothing items retrieved successfully',
+            'data' => $clothingItems
+        ]);
     }
 
     /**
@@ -19,11 +26,22 @@ class ClothingItemController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate incoming request
         $validated = $request->validate([
             'name' => 'required|string',
-            'category_id' => 'required|exists:categories,id'
+            'description' => 'required|string',
+            'size' => 'required|string',
+            'color' => 'required|string',
+            'category_id' => 'required|exists:categories,id', // Ensure category exists
         ]);
-        return ClothingItem::create($validated);
+
+        // Create a new clothing item
+        $clothingItem = ClothingItem::create($validated);
+
+        return response()->json([
+            'message' => 'Clothing item added successfully',
+            'data' => $clothingItem
+        ], 201); // Return a 201 status code for resource created
     }
 
     /**
@@ -31,7 +49,13 @@ class ClothingItemController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Fetch the clothing item by ID, with the associated category
+        $clothingItem = ClothingItem::with('category')->findOrFail($id);
+
+        return response()->json([
+            'message' => 'Clothing item retrieved successfully',
+            'data' => $clothingItem
+        ]);
     }
 
     /**
@@ -39,14 +63,25 @@ class ClothingItemController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Find the clothing item by ID
         $clothingItem = ClothingItem::findOrFail($id);
+
+        // Validate incoming request
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'category_id' => 'required|exists:categories,id'
+            'description' => 'required|string|max:500',
+            'size' => 'required|string',
+            'color' => 'required|string',
+            'category_id' => 'required|exists:categories,id', // Ensure category exists
         ]);
-        
+
+        // Update clothing item with validated data
         $clothingItem->update($validated);
-        return $clothingItem;
+
+        return response()->json([
+            'message' => 'Clothing item updated successfully',
+            'data' => $clothingItem
+        ]);
     }
 
     /**
@@ -54,7 +89,9 @@ class ClothingItemController extends Controller
      */
     public function destroy(string $id)
     {
+        // Find and delete the clothing item by ID
         ClothingItem::destroy($id);
-        return response()->noContent();
+
+        return response()->json(['message' => 'Clothing item deleted successfully'], 204);
     }
 }
