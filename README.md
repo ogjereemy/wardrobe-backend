@@ -22,14 +22,15 @@ This is the backend of the Wardrobe Management System, built with Laravel 11. It
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/wardrobe-management-backend.git
+    git clone https://github.com/ogjereemy/wardrobe-frontend.git
     cd wardrobe-management-backend
     ```
 
 2. Install dependencies:
 
     ```bash
-    composer install
+    composer install or 
+    bundle install
     ```
 
 3. Copy `.env.example` to `.env` and configure your environment variables (database, app URL, etc.):
