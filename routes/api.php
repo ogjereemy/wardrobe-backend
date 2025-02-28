@@ -17,17 +17,17 @@ Route::middleware([EnsureFrontendRequestsAreStateful::class, 'auth:sanctum'])->g
         return $request->user();
     });
 
-    Route::post('clothing-items', [ClothingItemController::class, 'store']);
-    Route::get('clothing-items', [ClothingItemController::class, 'index']);
-    Route::get('clothing-items/{id}', [ClothingItemController::class, 'show']);
-    Route::put('clothing-items/{id}', [ClothingItemController::class, 'update']);
-    Route::delete('clothing-items/{id}', [ClothingItemController::class, 'destroy']);
-    Route::get('categories', [CategoryController::class, 'index']);
-    Route::get('categories/{id}', [CategoryController::class, 'show']);
-    Route::post('categories', [CategoryController::class, 'store']);
-    Route::put('categories/{id}', [CategoryController::class, 'update']);
-    Route::delete('categories/{id}', [CategoryController::class, 'destroy']);
-    Route::post('/logout', [AuthController::class, 'logout']);
 });
+Route::post('clothing-items', [ClothingItemController::class, 'store']);
+Route::get('clothing-items', [ClothingItemController::class, 'index']);
+Route::get('clothing-items/{id}', [ClothingItemController::class, 'show']);
+Route::put('clothing-items/{id}', [ClothingItemController::class, 'update']);
+Route::delete('clothing-items/{id}', [ClothingItemController::class, 'destroy']);
+Route::get('categories/{id}', [CategoryController::class, 'show']);
+Route::post('categories', [CategoryController::class, 'store']);
+Route::put('categories/{id}', [CategoryController::class, 'update']);
+Route::delete('categories/{id}', [CategoryController::class, 'destroy']);
+Route::post('/logout', [AuthController::class, 'logout']);
+Route::get('categories', [CategoryController::class, 'index']);
 
 
