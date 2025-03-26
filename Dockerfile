@@ -1,5 +1,5 @@
-# Use an official PHP image with Apache
-FROM php:8.1-apache
+# Use an official PHP image with Apache (PHP 8.2)
+FROM php:8.2-apache
 
 # Set the working directory
 WORKDIR /var/www/html
@@ -20,9 +20,8 @@ RUN apt-get update && apt-get install -y \
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Install Composer and check the version
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN composer --version
 
 # Copy the existing application directory contents
 COPY . .
