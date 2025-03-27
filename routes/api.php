@@ -10,6 +10,9 @@ use App\Http\Controllers\CategoryController;
 // Public routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/api', function () {
+    return response()->json(['message' => 'API Working']);
+});
 
 // Protected routes that require authentication
 Route::middleware([EnsureFrontendRequestsAreStateful::class, 'auth:sanctum'])->group(function () {
