@@ -8,6 +8,7 @@
     "require": {
         "php": "^8.2",
         "illuminate/filesystem": "*",
+        "illuminate/support": "^11.0",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^11.31",
         "laravel/sanctum": "^4.0",
