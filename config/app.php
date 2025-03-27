@@ -134,6 +134,7 @@ return [
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Database\DatabaseServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\Encryption\EncryptionServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         Laravel\Sanctum\SanctumServiceProvider::class,
